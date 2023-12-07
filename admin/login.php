@@ -13,7 +13,7 @@ if (!empty($_POST["login"]) && $_POST["email"] != '' && $_POST["password"] != ''
     $user->setPassword($_POST["password"]);
     if ($user->login()) {
         header("location: dashboard.php");
-    } else {
+    } else {       
         $loginMessage = 'Invalid login! Please try again.';
     }
 }
@@ -44,7 +44,8 @@ include('Cpn/header.php');
                 </div>
                 <div style="margin-top:10px" class="form-group">
                     <div class="col-sm-12 controls">
-                        User: admin@admin.com<br>
+                        Admin: admin@admin.com<br>
+                        User: user@user.com<br>
                         password:123
                     </div>
                 </div>

@@ -4,7 +4,7 @@ include_once 'class/Category.php';
 $database = new Database();
 $db = $database->getConnection();
 
-$category = new Category($db,$id);
+$category = new Category($db);
 
 if(!empty($_POST['action']) && $_POST['action'] == 'categoryListing') {
 	$category->getCategoryListing();

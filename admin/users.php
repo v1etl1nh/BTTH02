@@ -45,7 +45,7 @@ include('Cpn/header.php');
 			<?php include "left_menus.php"; ?>
 			<div class="col-md-9">
 				<div class="panel panel-default">
-					<div class="panel-heading"style="background-color:  #095f59;>
+					<div class="panel-heading" style="background-color:  #095f59;">
 						<h3 class="panel-title">Latest Users</h3>
 					</div>
 					<div class="panel-body">

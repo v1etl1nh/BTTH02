@@ -7,7 +7,7 @@
 		<span class="icon-bar"></span>
 		<span class="icon-bar"></span>
 	  </button>
-	  <a class="navbar-brand" href="https://www.youtobe.com/">YOUTUBE.COM</a>
+	  <a class="navbar-brand" href="https://www.youtube.com/">YOUTUBE.COM</a>
 	</div>
 	<div id="navbar" class="collapse navbar-collapse">
 	  <ul class="nav navbar-nav">
@@ -15,7 +15,7 @@
 	  </ul>
 	  <?php if(!empty($_SESSION["userid"])) { ?>
 	  <ul class="nav navbar-nav navbar-right">
-		<li class="active"><a href="index.html">Welcome, <?php echo $_SESSION["name"]; ?></a></li>
+		<li class="active"><a href="index.php">Welcome, <?php echo $_SESSION["name"]; ?></a></li>
 		<li><a href="logout.php">Logout</a></li>          
 	  </ul>
 	  <?php } ?>

@@ -1,5 +1,4 @@
 <?php
-session_start();
 class User {	
    
 	private $userTable = 'cms_user';	
@@ -16,16 +15,40 @@ class User {
         $this->conn = $conn;
     }    
 
-	public function setId($id) {
+	public function getId() {
+        return $this->id;
+    }
+
+	public function getPassword() {
+        return $this->password;
+    }
+
+    public function setId($id) {
         $this->id = $id;
     }
 
-	public function setEmail($email) {
+    public function setFirstName($first_name) {
+        $this->first_name = $first_name;
+    }
+
+    public function setLastName($last_name) {
+        $this->last_name = $last_name;
+    }
+
+    public function setEmail($email) {
         $this->email = $email;
     }
 
     public function setPassword($password) {
-        $this->password = $password;
+        $this->password = password_hash($password, PASSWORD_DEFAULT);
+    }
+
+    public function setType($type) {
+        $this->type = $type;
+    }
+
+    public function setDeleted($deleted) {
+        $this->deleted = $deleted;
     }
 	
 	public function login() {
@@ -42,8 +65,7 @@ class User {
 			if ($result->num_rows > 0) {
 				$user = $result->fetch_assoc();
 	
-				if (md5($this->password) === $user['password']) {
-
+				if (password_verify($user['password'],$this->password)) {
 					$_SESSION["userid"] = $user['id'];
 					$_SESSION["user_type"] = $user['type'];
 					$_SESSION["name"] = $user['first_name'] . " " . $user['last_name'];

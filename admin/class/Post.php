@@ -18,10 +18,51 @@ class Post {
 		$this->conn = $db;
 	}
 	
-	public function setId($id) {
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id)
+    {
         $this->id = $id;
     }
-	
+
+    public function setTitle($title)
+    {
+        $this->title = $title;
+    }
+
+    public function setMessage($message)
+    {
+        $this->message = $message;
+    }
+
+    public function setCategory($category)
+    {
+        $this->category = $category;
+    }
+
+    public function setUserId($userid)
+    {
+        $this->userid = $userid;
+    }
+
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+    public function setCreated($created)
+    {
+        $this->created = $created;
+    }
+
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+    }
+
 	public function getPostsListing(){		
 		
 		$whereQuery = '';
