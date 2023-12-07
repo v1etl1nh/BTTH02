@@ -3,8 +3,8 @@ include_once 'config/Database.php';
 include_once 'class/Articles.php';
 $database = new Database();
 $db = $database->getConnection();
-$id = 0;
-$article = new Articles($db,$id);
+
+$article = new Articles($db,$id = 0);
 
 $result = $article->getArticles();
 

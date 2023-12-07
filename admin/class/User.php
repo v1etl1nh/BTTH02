@@ -19,6 +19,10 @@ class User {
         return $this->id;
     }
 
+	public function getPassword() {
+        return $this->password;
+    }
+
     public function setId($id) {
         $this->id = $id;
     }
@@ -61,7 +65,7 @@ class User {
 			if ($result->num_rows > 0) {
 				$user = $result->fetch_assoc();
 
-				if (true) {
+				if (password_verify($this->password,$user['password'])) {
 					$_SESSION["userid"] = $user['id'];
 					$_SESSION["user_type"] = $user['type'];
 					$_SESSION["name"] = $user['first_name'] . " " . $user['last_name'];
@@ -190,7 +194,7 @@ class User {
 			$this->first_name = htmlspecialchars(strip_tags($this->first_name));
 			$this->last_name = htmlspecialchars(strip_tags($this->last_name));
 			$this->email = htmlspecialchars(strip_tags($this->email));
-			$this->password = htmlspecialchars(strip_tags(md5($this->password)));
+			$this->password = password_hash($this->password,PASSWORD_DEFAULT);
 			$this->type = htmlspecialchars(strip_tags($this->type));
 			$this->deleted = htmlspecialchars(strip_tags($this->deleted));		
 						
