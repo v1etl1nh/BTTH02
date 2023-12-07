@@ -35,8 +35,8 @@ include('Cpn/header.php');
 					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Manage
 					<span class="caret"></span></button>
 					<ul class="dropdown-menu">						
-						<li><a href="#">Add Post</a></li>
-						<li><a href="#">Add Category</a></li>
+						<li><a href="compose_post.php">Add Post</a></li>
+						<li><a href="add_categories.php">Add Category</a></li>
 					</ul>
 				</div> 
 			</div>

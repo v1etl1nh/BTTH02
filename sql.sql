@@ -42,8 +42,8 @@ ALTER TABLE `cms_category`
 
   
 INSERT INTO `cms_user` (`id`, `first_name`, `last_name`, `email`, `password`, `type`, `deleted`) VALUES
-(1, 'admin', '', 'admin@admin.com', '$2y$10$ByBkxMz6Ijb2t9xIH8f8B.JCAbQQttvynNxlUSd1d/D', 1, 0),
-(2, 'user', '', 'user@user.com', '$2y$10$WsGlW7xJTxNjpUeE2up/uu0Pu80KITqdDQKYAvlLWww', 2, 0);
+(1, 'admin', '', 'admin@admin.com', '202cb962ac59075b964b07152d234b7', 1, 0),
+(2, 'user', '', 'user@user.com', '202cb962ac59075b964b07152d234b7', 2, 0);
 
 ALTER TABLE `cms_user`
   ADD PRIMARY KEY (`id`);
