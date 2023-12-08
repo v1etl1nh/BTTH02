@@ -85,6 +85,10 @@ class User {
 	public function loggedIn (){
 		return isset($_SESSION["userid"]);
 	}
+
+	public function isAdmin (){
+		return isset($_SESSION["user_type"]) && $_SESSION["user_type"] == 1;
+	}
 	
 	public function totalUser(){		
 		$sqlQuery = "SELECT * FROM ".$this->userTable;			

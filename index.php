@@ -20,6 +20,7 @@ include('Cpn/header.php');
 			<div class="header">
 			<a href="#default" class="logo">My DEMO CMS</a>
 			<div class="header-right">
+				<a href="./admin">Login</a>
 				<a href="index.php">Home</a>
 				<a href="#contact">Contact</a>
 				<a href="#about">About</a>
