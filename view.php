@@ -15,7 +15,7 @@ include('inc/header.php');
 ?>
 <title>phpzag.com : Demo Build Content Management System with PHP & MySQL</title>
 <link href="css/style.css" rel="stylesheet" id="bootstrap-css">
-<?php include('../container.php');?>
+<?php include('inc/container.php');?>
 <div class="container">		
 	<div id="blog" class="row">     
 		<div id="blog" class="row">

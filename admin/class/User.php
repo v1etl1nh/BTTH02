@@ -7,6 +7,7 @@ class User {
 	public $last_name;
 	public $type;
 	public $deleted;
+	public $updated;
    
 	private $userTable = 'cms_user';	
 	private $conn;

@@ -4,7 +4,7 @@ class Database{
 	private $host  = 'localhost';
     private $user  = 'root';
     private $password   = "";
-    private $database  = "phpzag_demo"; 
+    private $database  = "cms"; 
     
     public function getConnection(){		
 		$conn = new mysqli($this->host, $this->user, $this->password, $this->database);

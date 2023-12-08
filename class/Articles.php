@@ -1,5 +1,6 @@
 <?php
-class Articles {	
+class Articles {
+	public $id;	
    
 	private $postTable = 'cms_posts';
 	private $categoryTable = 'cms_category';
