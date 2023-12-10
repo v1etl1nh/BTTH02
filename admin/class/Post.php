@@ -22,14 +22,14 @@ class Post {
 		
 		$whereQuery = '';
 		if($_SESSION['user_type'] == 2) {
-			$whereQuery = "WHERE p.userid ='".$_SESSION['userid']."'";
+			$whereQuery = "WHERE cms_posts.userid ='".$_SESSION['userid']."'";
 		}	
 		
 		$sqlQuery = "
-			SELECT p.id, p.title, p.category_id, u.first_name, u.last_name, p.status, p.created, p.updated, c.name 
-			FROM ".$this->postTable." p
-			LEFT JOIN ".$this->categoryTable." c ON c.id = p.category_id
-			LEFT JOIN ".$this->userTable." u ON u.id = p.userid
+			SELECT cms_posts.id, cms_posts.title, cms_posts.category_id, cms_user.first_name, cms_user.last_name, cms_posts.status, cms_posts.created, cms_posts.updated, cms_category.name 
+			FROM ".$this->postTable." cms_posts
+			LEFT JOIN ".$this->categoryTable." cms_category ON cms_category.id = cms_posts.category_id
+			LEFT JOIN ".$this->userTable." cms_user ON cms_user.id = cms_posts.userid
 			$whereQuery";
 		
 		if(!empty($_POST["search"]["value"])){
@@ -94,10 +94,10 @@ class Post {
 	public function getPost(){		
 		if($this->id) {
 			$sqlQuery = "
-				SELECT p.id, p.title, p.message, p.category_id, p.status, p.created, p.updated, c.name 
-				FROM ".$this->postTable." p
-				LEFT JOIN ".$this->categoryTable." c ON c.id = p.category_id
-				WHERE p.id = ? ";
+				SELECT cms_posts.id, cms_posts.title, cms_posts.message, cms_posts.category_id, cms_posts.status, cms_posts.created, cms_posts.updated, cms_category.name 
+				FROM ".$this->postTable." cms_posts
+				LEFT JOIN ".$this->categoryTable." cms_category ON cms_category.id = cms_posts.category_id
+				WHERE cms_posts.id = ? ";
 			$stmt = $this->conn->prepare($sqlQuery);
 			$stmt->bind_param("i", $this->id);	
 			$stmt->execute();

@@ -62,10 +62,7 @@ class Category {
 	
 	public function getCategory(){		
 		if($this->id) {
-			$sqlQuery = "
-			SELECT id, name
-			FROM ".$this->categoryTable." 			
-			WHERE id = ? ";
+			$sqlQuery = "SELECT id, name FROM ".$this->categoryTable." WHERE id = ? ";
 			$stmt = $this->conn->prepare($sqlQuery);
 			$stmt->bind_param("i", $this->id);	
 			$stmt->execute();

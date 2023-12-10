@@ -80,44 +80,44 @@ include('inc/header.php');
 						<?php } ?>
 						<div class="form-group">
 							<label for="title" class="control-label">First Name</label>
-							<input type="text" class="form-control" id="first_name" name="first_name" value="<?php echo $userDetails['first_name']; ?>" placeholder="First name..">							
+							<input type="text" class="form-control" id="first_name" name="first_name" value="<?php if(isset($userDetails['first_name'])) echo $userDetails['first_name']; ?>" placeholder="First name..">							
 						</div>
 						
 						<div class="form-group">
 							<label for="title" class="control-label">Last Name</label>
-							<input type="text" class="form-control" id="last_name" name="last_name" value="<?php echo $userDetails['last_name']; ?>" placeholder="Last name..">							
+							<input type="text" class="form-control" id="last_name" name="last_name" value="<?php if(isset($userDetails['last_name'])) echo $userDetails['last_name']; ?>" placeholder="Last name..">							
 						</div>
 						
 						<div class="form-group">
 							<label for="title" class="control-label">Email</label>
-							<input type="email" class="form-control" id="email" name="email" value="<?php echo $userDetails['email']; ?>" placeholder="email..">							
+							<input type="email" class="form-control" id="email" name="email" value="<?php if(isset($userDetails['email'])) echo $userDetails['email']; ?>" placeholder="email..">							
 						</div>					
 						<?php 
 						if(!$user->id) {	
 						?>
 						<div class="form-group">
 							<label for="title" class="control-label">Password</label>
-							<input type="password" class="form-control" id="password" name="password" value="<?php echo $userDetails['password']; ?>" placeholder="password..">							
+							<input type="password" class="form-control" id="password" name="password" value="<?php if(isset($userDetails['password'])) echo $userDetails['password']; ?>" placeholder="password..">							
 						</div>	
 						<?php } ?>						
 											
 						<div class="form-group">
 							<label for="status" class="control-label">User Type </label>							
 							<label class="radio-inline">
-								<input type="radio" name="user_type" id="admin" value="1" <?php if($userDetails['type'] == 1) { echo "checked";} ?>>Administrator
+								<input type="radio" name="user_type" id="admin" value="1" <?php if(isset($userDetails['type'])) {if($userDetails['type'] == 1) { echo "checked";}} ?>>Administrator
 							</label>
 							<label class="radio-inline">
-								<input type="radio" name="user_type" id="author" value="2" <?php if($userDetails['type'] == 2) { echo "checked";} ?>>Author
+								<input type="radio" name="user_type" id="author" value="2" <?php if(isset($userDetails)) {if($userDetails['type'] == 2) { echo "checked";}} ?>>Author
 							</label>												
 						</div>		
 
 						<div class="form-group">
 							<label for="status" class="control-label">User Status </label>							
 							<label class="radio-inline">
-								<input type="radio" name="user_status" id="active" value="0" <?php if(!$userDetails['deleted']) { echo "checked";} ?>>Active
+								<input type="radio" name="user_status" id="active" value="0" <?php if(isset($userDetails)) {if(!$userDetails['deleted']) { echo "checked";}} ?>>Active
 							</label>
 							<label class="radio-inline">
-								<input type="radio" name="user_status" id="inactive" value="1" <?php if($userDetails['deleted']) { echo "checked";} ?>>Inactive
+								<input type="radio" name="user_status" id="inactive" value="1" <?php if(isset($userDetails)) {if($userDetails['deleted']) { echo "checked";}} ?>>Inactive
 							</label>												
 						</div>	
 						
