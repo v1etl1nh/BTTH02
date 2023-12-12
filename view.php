@@ -12,7 +12,7 @@ $result = $article->getArticles();
 include('Cpn/header.php');
 
 ?>
-<title>phpzag.com : Demo Build Content Management System with PHP & MySQL</title>
+<title>youtube.com : Demo Build Content Management System with PHP & MySQL</title>
 <link href="css/style.css" rel="stylesheet" id="bootstrap-css">
 <?php include('Cpn/container.php');?>
 <div class="container">		

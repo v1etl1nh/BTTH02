@@ -6,7 +6,7 @@ CREATE TABLE `cms_user` (
   `first_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
   `email` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `type` int(11) NOT NULL,
   `deleted` int(11) NOT NULL DEFAULT 0
 );
@@ -42,8 +42,8 @@ ALTER TABLE `cms_category`
 
   
 INSERT INTO `cms_user` (`id`, `first_name`, `last_name`, `email`, `password`, `type`, `deleted`) VALUES
-(1, 'admin', '', 'admin@admin.com', '$2y$10$ByBkxMz6Ijb2t9xIH8f8B.JCAbQQttvynNxlUSd1d/D', 1, 0),
-(2, 'user', '', 'user@user.com', '$2y$10$WsGlW7xJTxNjpUeE2up/uu0Pu80KITqdDQKYAvlLWww', 2, 0);
+(1, 'admin', '', 'admin@admin.com', '$2y$10$kRkQ1v/lzebZ4wHVgywf4OAZPAC.TB8LEO.p.S4K41cYVkFUTbMRS', 1, 0),
+(2, 'user', '', 'user@user.com', '$2y$10$kRkQ1v/lzebZ4wHVgywf4OAZPAC.TB8LEO.p.S4K41cYVkFUTbMRS', 2, 0);
 
 ALTER TABLE `cms_user`
   ADD PRIMARY KEY (`id`);

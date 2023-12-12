@@ -18,7 +18,7 @@ if(!$user->loggedIn()) {
 
 $category = new Category($db);
 
-$category->setId((isset($_GET['id']) && $_GET['id']) ? $_GET['id'] : '0');
+$category->setId((isset($_GET['id']) && $_GET['id']) ? $_GET['id'] : null);
 
 $saveMessage = '';
 if(!empty($_POST["categorySave"]) && $_POST["categoryName"]!='') {
@@ -78,7 +78,7 @@ include('Cpn/header.php');
 						
 						<div class="form-group">
 							<label for="title" class="control-label">Category Name</label>
-							<input type="text" class="form-control" id="categoryName" name="categoryName" value="<?php echo $categoryDetails['name']; ?>" placeholder="Category name..">							
+							<input type="text" class="form-control" id="categoryName" name="categoryName" value="<?php echo isset($categoryDetails['name'])?$categoryDetails['name']:null; ?>" placeholder="Category name..">							
 						</div>				
 						
 						<input type="submit" name="categorySave" id="categorySave" class="btn btn-info" value="Save" />											

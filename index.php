@@ -3,8 +3,8 @@ include_once 'config/Database.php';
 include_once 'class/Articles.php';
 $database = new Database();
 $db = $database->getConnection();
-$id = 0;
-$article = new Articles($db,$id);
+
+$article = new Articles($db,$id = 0);
 
 $result = $article->getArticles();
 
@@ -20,6 +20,7 @@ include('Cpn/header.php');
 			<div class="header">
 			<a href="#default" class="logo">My DEMO CMS</a>
 			<div class="header-right">
+				<a href="./admin">Login</a>
 				<a href="index.php">Home</a>
 				<a href="#contact">Contact</a>
 				<a href="#about">About</a>

@@ -20,11 +20,10 @@ $post = new Post($db);
 
 $categories = $post->getCategories();
 
-$post->setId((isset($_GET['id']) && $_GET['id']) ? $_GET['id'] : '0');
+$post->setId((isset($_GET['id']) && $_GET['id']) ? $_GET['id'] : null);
 $saveMessage = '';
 
 if (!empty($_POST["savePost"]) && $_POST["title"] != '' && $_POST["message"] != '') {
-    // Set values using setter methods
     $post->setTitle($_POST["title"]);
     $post->setMessage($_POST["message"]);
     $post->setCategory($_POST["category"]);
@@ -47,7 +46,6 @@ if (!empty($_POST["savePost"]) && $_POST["title"] != '' && $_POST["message"] != 
         }
     }
 }
-
 $postdetails = $post->getPost();
  
 include('Cpn/header.php');
@@ -88,12 +86,12 @@ include('Cpn/header.php');
 						<?php } ?>
 						<div class="form-group">
 							<label for="title" class="control-label">Title</label>
-							<input type="text" class="form-control" id="title" name="title" value="<?php echo $postdetails['title']; ?>" placeholder="Post title..">							
+							<input type="text" class="form-control" id="title" name="title" value="<?php echo isset($postdetails['title']) ? $postdetails['title']:null; ?>" placeholder="Post title..">							
 						</div>
 						
 						<div class="form-group">
 							<label for="lastname" class="control-label">Message</label>							
-							<textarea class="form-control" rows="5" id="message" name="message" placeholder="Post message.."><?php echo $postdetails['message']; ?></textarea>					
+							<textarea class="form-control" rows="5" id="message" name="message" placeholder="Post message.."><?php echo isset($postdetails['message']) ? $postdetails['message']:null; ?></textarea>					
 						</div>	
 
 						
@@ -114,13 +112,13 @@ include('Cpn/header.php');
 						<div class="form-group">
 							<label for="status" class="control-label"></label>							
 							<label class="radio-inline">
-								<input type="radio" name="status" id="publish" value="published" <?php if($postdetails['status'] == 'published') { echo "checked";} ?>>Publish
+								<input type="radio" name="status" id="publish" value="published" <?php if(isset($postdetails['status']) && $postdetails['status'] == 'published') { echo "checked";} ?>>Publish
 							</label>
 							<label class="radio-inline">
-								<input type="radio" name="status" id="draft" value="draft" <?php if($postdetails['status'] == 'draft') { echo "checked";} ?>>Draft
+								<input type="radio" name="status" id="draft" value="draft" <?php if(isset($postdetails['status']) && $postdetails['status'] == 'draft') { echo "checked";} ?>>Draft
 							</label>
 							<label class="radio-inline">
-								<input type="radio" name="status" id="archived" value="archived" <?php if($postdetails['status'] == 'archived') { echo "checked";} ?>>Archive
+								<input type="radio" name="status" id="archived" value="archived" <?php if(isset($postdetails['status']) && $postdetails['status'] == 'archived') { echo "checked";} ?>>Archive
 							</label>							
 						</div>											
 						<input type="submit" name="savePost" id="savePost" class="btn btn-info" value="Save" />											

@@ -13,7 +13,7 @@ if (!empty($_POST["login"]) && $_POST["email"] != '' && $_POST["password"] != ''
     $user->setPassword($_POST["password"]);
     if ($user->login()) {
         header("location: dashboard.php");
-    } else {       
+    } else {
         $loginMessage = 'Invalid login! Please try again.';
     }
 }

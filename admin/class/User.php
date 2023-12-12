@@ -40,7 +40,7 @@ class User {
     }
 
     public function setPassword($password) {
-        $this->password = password_hash($password, PASSWORD_DEFAULT);
+        $this->password = $password;
     }
 
     public function setType($type) {
@@ -64,8 +64,8 @@ class User {
 	
 			if ($result->num_rows > 0) {
 				$user = $result->fetch_assoc();
-	
-				if (password_verify($user['password'],$this->password)) {
+
+				if (password_verify($this->password,$user['password'])) {
 					$_SESSION["userid"] = $user['id'];
 					$_SESSION["user_type"] = $user['type'];
 					$_SESSION["name"] = $user['first_name'] . " " . $user['last_name'];
@@ -84,6 +84,10 @@ class User {
 	
 	public function loggedIn (){
 		return isset($_SESSION["userid"]);
+	}
+
+	public function isAdmin (){
+		return isset($_SESSION["user_type"]) && $_SESSION["user_type"] == 1;
 	}
 	
 	public function totalUser(){		
@@ -194,11 +198,11 @@ class User {
 			$this->first_name = htmlspecialchars(strip_tags($this->first_name));
 			$this->last_name = htmlspecialchars(strip_tags($this->last_name));
 			$this->email = htmlspecialchars(strip_tags($this->email));
-			$this->password = htmlspecialchars(strip_tags($this->password));
+			$this->password = password_hash($this->password,PASSWORD_DEFAULT);
 			$this->type = htmlspecialchars(strip_tags($this->type));
 			$this->deleted = htmlspecialchars(strip_tags($this->deleted));		
 						
-			$stmt->bind_param("ssssii", $this->first_name, $this->last_name, $this->email, md5($this->password), $this->type, $this->deleted);
+			$stmt->bind_param("ssssii", $this->first_name, $this->last_name, $this->email, $this->password, $this->type, $this->deleted);
 			
 			if($stmt->execute()){
 				return $stmt->insert_id;
@@ -218,7 +222,6 @@ class User {
 			$this->first_name = htmlspecialchars(strip_tags($this->first_name));
 			$this->last_name = htmlspecialchars(strip_tags($this->last_name));
 			$this->email = htmlspecialchars(strip_tags($this->email));
-			$this->password = htmlspecialchars(strip_tags($this->password));
 			$this->type = htmlspecialchars(strip_tags($this->type));
 			$this->deleted = htmlspecialchars(strip_tags($this->deleted));			
 			

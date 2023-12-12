@@ -41,9 +41,9 @@ include('Cpn/header.php');
 	<div class="container">
 		<div class="row">
 			<?php include "left_menus.php"; ?>
-			<div class="col-md-9">"
+			<div class="col-md-9">
 				<div class="panel panel-default">
-					<div class="panel-heading"style="background-color: #095f59;">
+					<div class="panel-heading" style="background-color: #095f59" >
 						<h3 class="panel-title">Categories</h3>
 					</div>
 					<div class="panel-body">
